@@ -9,7 +9,13 @@ public class InterviewTasks {
      *         summing of which gives the value equaled to a given "sum" value
      */
     static public boolean hasSumTwo(int[] array, int sum) {
-        // TODO
+        for (int i = 0; i < array.length; i++) {
+            for(int j = i + 1; j < array.length; j++) {
+                if(array[i] + array[j] == sum) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 }
