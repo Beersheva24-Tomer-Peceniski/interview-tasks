@@ -2,6 +2,7 @@ package telran.interview;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +18,8 @@ String [] wordsAa = {"aaA"};
 		for(String word: words) {
 			autoCompletion.addWord(word);
 		}
-		assertArrayEquals(wordsAb, autoCompletion.getVariants("ab"));
+		Arrays.stream(autoCompletion.getVariants("ab")).forEach(System.out::print);
+        assertArrayEquals(wordsAb, autoCompletion.getVariants("ab"));
 		assertArrayEquals(wordsAv, autoCompletion.getVariants("av"));
 		assertArrayEquals(wordsAa, autoCompletion.getVariants("aa"));
 	}

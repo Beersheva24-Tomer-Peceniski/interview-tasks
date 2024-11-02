@@ -1,31 +1,26 @@
 package telran.interview;
 
-
-//all methods must have complexity O[1]
 public class MyArray<T> {
- //TODO
-	public void setAll(T value) {
-        //TODO
-		//all array's elements should be set with a given value
-		
-	}
-	public void set(int index, T value) {
-        //TODO
-		//set new value at a given index
-		//throws ArrayIndexOutOfBoundsException for incorrect index
-        throw new UnsupportedOperationException();
-		
-	}
-	
-	public T get(int index) {
-		//returns a value at a given index
-		//throws ArrayIndexOutOfBoundsException for incorrect index
-        throw new UnsupportedOperationException();
-		
-	}
-	public MyArray(int size) {
-		//creates the Array object for a given size
-		//with setting null's at each element
-		throw new UnsupportedOperationException();
-	}
+    private Object[] array;
+    boolean settedAll = true;
+    T allValue = null;
+
+    public void setAll(T value) {
+        settedAll = true;
+        allValue = value;
+    }
+
+    public void set(int index, T value) {
+        settedAll = false;
+        allValue = null;
+        array[index] = value;
+    }
+
+    public T get(int index) {
+        return settedAll == true ? allValue : (T) array[index];
+    }
+
+    public MyArray(int size) {
+        array = new Object[size];
+    }
 }
